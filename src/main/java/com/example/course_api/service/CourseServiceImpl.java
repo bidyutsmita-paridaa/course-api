@@ -1,51 +1,51 @@
 package com.example.course_api.service;
 
 import com.example.course_api.Course;
+import com.example.course_api.repository.CourseRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class CourseServiceImpl implements CourseService {
 
-    private final List<Course> courses = new ArrayList<>();
+    private final CourseRepository courseRepository;
+
+    public CourseServiceImpl(CourseRepository courseRepository) {
+        this.courseRepository = courseRepository;
+    }
 
     @Override
     public List<Course> getAllCourses() {
-        return courses;
+        return courseRepository.findAll();
     }
 
     @Override
     public Course getCourseById(int id) {
-        for (Course course : courses) {
-            if (course.getId() == id) {
-                return course;
-            }
-        }
-        return null;
+        return courseRepository.findById(id).orElse(null);
     }
 
     @Override
     public Course addCourse(Course course) {
-        courses.add(course);
-        return course;
+        return courseRepository.save(course);
     }
 
     @Override
     public Course updateCourse(int id, Course updatedCourse) {
-        for (Course course : courses) {
-            if (course.getId() == id) {
-                course.setName(updatedCourse.getName());
-                course.setDescription(updatedCourse.getDescription());
-                return course;
-            }
-        }
-        return null;
+        return courseRepository.findById(id).map(course -> {
+            course.setName(updatedCourse.getName());
+            course.setDescription(updatedCourse.getDescription());
+            return courseRepository.save(course);
+        }).orElse(null);
     }
 
     @Override
     public boolean deleteCourse(int id) {
-        return courses.removeIf(course -> course.getId() == id);
+        if (!courseRepository.existsById(id)) {
+            return false;
+        }
+
+        courseRepository.deleteById(id);
+        return true;
     }
 }

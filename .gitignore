@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Protect database credentials
+src/main/resources/application.properties
