@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #1e293b;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, #9d31be, #e15ce6);
+  color: white;
+  padding: 35px 8%;
+}
+
+.header h1 {
+  margin: 0 0 10px;
+  font-size: 32px;
+}
+
+.header p {
+  margin: 0;
+  color: #b4bcd6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 35px auto;
+  padding: 0 25px;
+}
+
+.container h2 {
+  margin-bottom: 25px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.course-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+}
+
+.course-card h3 {
+  color: #be74e9;
+  margin-top: 0;
+}
+
+.course-card p {
+  line-height: 1.6;
+  color: #64748b;
+}
+
+.course-card span {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.error {
+  background: #e26c93;
+  color: #660f04;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 28px 6%;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
+
+.auth-card {
+  max-width: 420px;
+  margin: 45px auto;
+  padding: 30px;
+  background: rgb(235, 210, 241);
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(224, 210, 210, 0.08);
+}
+
+.auth-card h2 {
+  margin-top: 0;
+  color: #e45ba6;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-card label {
+  font-weight: bold;
+}
+
+.auth-card input {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+.auth-card button,
+.container button {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 7px;
+  background: #4338ca;
+  color: rgb(209, 195, 195);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.auth-card .switch-button {
+  margin-top: 15px;
+  background: transparent;
+  color: #4338ca;
+}
+
+.logout-button {
+  margin-top: 15px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.message {
+  overflow-wrap: anywhere;
+}
