@@ -125,7 +125,15 @@ Course endpoints require a valid JWT access token.
 
 ## Deployment
 
-The application has been built as an executable Spring Boot JAR. Live deployment requires hosting the frontend, backend, and database and configuring production environment variables and CORS.
+The application is deployed using Render.
+
+Frontend:https://course-dashboard-2p3x.onrender.com.
+
+Backend: https://course-api-zbb3.onrender.com
+
+The React frontend is integrated with the Spring Boot backend.
+User registration, login, course creation, course listing,
+course search, course update, and course deletion have been tested.
 
 ## Future Improvements
 
