@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
-const API = "http://localhost:8080/api";
+const API = "https://course-api-zbb3.onrender.com/api";
 
 function App() {
   const [username, setUsername] = useState("");
